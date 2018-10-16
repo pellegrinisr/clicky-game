@@ -11,7 +11,10 @@ class App extends React.Component {
     super(props);
 
     this.state = {
-      images
+      images: images,
+      score: 0,
+      topScore: 0,
+      clicked: []
     };
     this.shuffle = this.shuffle.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -29,24 +32,49 @@ class App extends React.Component {
       images: newArray
     });
   }
-  clickHandler() {
-    this.shuffle(this.state.images);
+  clickHandler(event) {
+    let array = this.state.clicked.slice();
+    console.log("clicked: ", event.target.id);
+    if (array.includes(event.target.id)) {
+      window.alert('you lose');
+      this.setState({
+        images: images,
+        score: 0,
+        clicked: []
+      });
+    } else {
+      let score = this.state.score;
+      score++;
+      array.push(event.target.id);
+      if (score > this.state.topScore) {
+        this.setState({
+          clicked: array,
+          score: score,
+          topScore: score
+        });
+      } else {
+        this.setState({
+          clicked: array,
+          score: score
+        });
+      }
+      this.shuffle(this.state.images);
+    }
   }
   render() {
     return (
       <div>
-        <Header/> 
+        <Header score={this.state.score} topScore={this.state.topScore}/> 
         <Jumbotron/>
         <div className="container">
           <div className="row">
             {this.state.images.map(image => (
-              <div className="col-lg-3">
+              <div className="col-lg-3" key={image.id}>
                 <Image
                   onClick={this.clickHandler}
                   id={image.id}
                   name={image.name}
                   src={image.src}
-                  key={image.id}
                 />
               </div>
             ))}
