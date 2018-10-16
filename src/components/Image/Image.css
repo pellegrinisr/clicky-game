@@ -1,0 +1,6 @@
+.pic:hover {
+    cursor: pointer;
+}
+.pic {
+    margin-bottom: 1rem;
+}

@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "angels",
+    "src": "angels.jpg"
+  },
+  {
+    "id": 2,
+    "name": "atlanta",
+    "src": "atlanta.jpg"
+  },
+  {
+    "id": 3,
+    "name": "boston",
+    "src": "boston.gif"
+  },
+  {
+    "id": 4,
+    "name": "chicago",
+    "src": "chicago.png"
+  },
+  {
+    "id": 5,
+    "name": "cleveland",
+    "src": "cleveland.jpg"
+  },
+  {
+    "id": 6, 
+    "name": "colorado",
+    "src": "colorado.png"
+  },
+  {
+    "id": 7,
+    "name": "dodgers",
+    "src": "dodgers.jpg"
+  },
+  {
+    "id": 8,
+    "name": "houston",
+    "src": "houston.png"
+  },
+  {
+    "id": 9,
+    "name": "milwaukee",
+    "src": "milwaukee.jpg"
+  },
+  {
+    "id": 10,
+    "name": "new york",
+    "src": "newYork.jpg"
+  },
+  {
+    "id": 11,
+    "name": "oakland",
+    "src": "oakland.jpg"
+  },
+  {
+    "id": 12,
+    "name": "washington",
+    "src": "washington.png"
+  }
+]
