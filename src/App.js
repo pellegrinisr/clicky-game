@@ -63,8 +63,7 @@ class App extends React.Component {
     }
   }
   render() {
-    return (
-      
+    return (     
       <div>
         <Header score={this.state.score} topScore={this.state.topScore}/> 
         <Jumbotron/>
@@ -85,15 +84,15 @@ class App extends React.Component {
                     });
                   }}
                 >
-                <div className="col-md-3" >
-                  <Image
-                    onClick={this.clickHandler}
-                    id={image.id}
-                    name={image.name}
-                    src={image.src}
-                  />
-                </div>
-                </CSSTransition>
+                  <div className="col-md-3" >
+                    <Image
+                      onClick={this.clickHandler}
+                      id={image.id}
+                      name={image.name}
+                      src={image.src}
+                    />
+                  </div>
+                  </CSSTransition>
               ))}
             </div>
           </ TransitionGroup>
@@ -101,7 +100,6 @@ class App extends React.Component {
         <br/>
         <Footer />
       </div>  
-
     );
   }
 }

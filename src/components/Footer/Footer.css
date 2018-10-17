@@ -1,9 +1,11 @@
 .color {
-    background-color: #270339;
+    background-color: #5A2971;
     padding: 3rem;
 }
 footer {
-    background-color: #5A2971;
-    color: #270339;
+    background-color:#270339; 
+}
+.px-3 {
+    color: white;
     font-family: 'Montserrat', sans-serif;
 }
