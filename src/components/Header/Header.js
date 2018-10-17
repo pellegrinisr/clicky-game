@@ -10,7 +10,10 @@ const Header = props => (
       <span className="navbar-text">Click a Team Logo to Begin!</span>
     </div>
     <div className="nav navbar-nav navbar-right text-light">
-      Score: {props.score} | Top Score: {props.topScore}
+      <form className="form-inline">
+        {props.loser}
+        <span className="score">Score: {props.score} | Top Score: {props.topScore} </span>
+      </form>
     </div>
   </nav>
 );

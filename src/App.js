@@ -15,7 +15,8 @@ class App extends React.Component {
       score: 0,
       topScore: 0,
       clicked: [],
-      shake: false
+      shake: false,
+      visible: false
     };
     this.shuffle = this.shuffle.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -34,14 +35,13 @@ class App extends React.Component {
   }
   clickHandler(event) {
     let array = this.state.clicked.slice();
-    console.log("clicked: ", event.target.id);
     if (array.includes(event.target.id)) {
-      window.alert('you lose');
       this.setState({
         images: images,
         score: 0,
         clicked: [],
-        shake: true
+        shake: true,
+        visible: true
       });
     } else {
       let score = this.state.score;
@@ -65,7 +65,24 @@ class App extends React.Component {
   render() {
     return (     
       <div>
-        <Header score={this.state.score} topScore={this.state.topScore}/> 
+        <Header 
+          score={this.state.score} 
+          topScore={this.state.topScore} 
+          loser={
+            <CSSTransition
+              in={this.state.visible}
+              timeout={2000}
+              classNames="fade"
+              onEnter={() => {
+                this.setState({
+                  visible: false
+                });
+              }}
+            >
+              <span className="loser mr-4">You Lose</span>
+            </CSSTransition>
+          }
+        /> 
         <Jumbotron/>
         <div className="container">
           <TransitionGroup
