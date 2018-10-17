@@ -4,7 +4,6 @@ import Jumbotron from "./components/Jumbotron";
 import Image from "./components/Image";
 import Footer from "./components/Footer";
 import images from "./images.json";
-import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
@@ -19,7 +18,6 @@ class App extends React.Component {
     this.shuffle = this.shuffle.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
   }
-  
   shuffle(array) {
     let newArray = array.slice();
     for (var i = newArray.length - 1; i > 0; i--) {

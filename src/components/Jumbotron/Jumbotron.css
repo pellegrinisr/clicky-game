@@ -1,0 +1,13 @@
+h1 {
+    padding-top: 3rem;
+}
+h1, h4 {
+    font-family: 'Unica One', cursive;
+}
+.jumbotron {
+    background-color: #9974AA;
+    color: #270339;
+}
+p {
+    font-family: 'Lato', sans-serif;
+}

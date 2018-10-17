@@ -1,8 +1,10 @@
 import React from "react";
+import "./Footer.css";
 
 const Footer = props => (
-  <footer className="bg-dark text-light">
-    Clicky Game <img src="favicon.ico" alt="react icon"/>
+  <footer>
+    <div className="color"></div>
+    <span className="px-3">Clicky Game</span> <img className="py-1" src="favicon.ico" alt="react icon"/>
   </footer>
 );
 
