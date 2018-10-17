@@ -1,19 +1,21 @@
 import React from "react";
+import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Header from "./components/Header";
 import Jumbotron from "./components/Jumbotron";
 import Image from "./components/Image";
 import Footer from "./components/Footer";
 import images from "./images.json";
+import "./App.css";
 
 class App extends React.Component {
   constructor(props) {
     super(props);
-
     this.state = {
       images: images,
       score: 0,
       topScore: 0,
-      clicked: []
+      clicked: [],
+      shake: false
     };
     this.shuffle = this.shuffle.bind(this);
     this.clickHandler = this.clickHandler.bind(this);
@@ -38,7 +40,8 @@ class App extends React.Component {
       this.setState({
         images: images,
         score: 0,
-        clicked: []
+        clicked: [],
+        shake: true
       });
     } else {
       let score = this.state.score;
@@ -61,26 +64,44 @@ class App extends React.Component {
   }
   render() {
     return (
+      
       <div>
         <Header score={this.state.score} topScore={this.state.topScore}/> 
         <Jumbotron/>
         <div className="container">
-          <div className="row">
-            {this.state.images.map(image => (
-              <div className="col-lg-3" key={image.id}>
-                <Image
-                  onClick={this.clickHandler}
-                  id={image.id}
-                  name={image.name}
-                  src={image.src}
-                />
-              </div>
-            ))}
-          </div>
+          <TransitionGroup
+            className="image-group"
+          >
+            <div className="row">
+              {this.state.images.map(image => (
+                <CSSTransition
+                  in={this.state.shake}
+                  key={image.id}
+                  timeout={1000}
+                  classNames="shake"
+                  onEnter={() => {
+                    this.setState({
+                      shake: false,
+                    });
+                  }}
+                >
+                <div className="col-md-3" >
+                  <Image
+                    onClick={this.clickHandler}
+                    id={image.id}
+                    name={image.name}
+                    src={image.src}
+                  />
+                </div>
+                </CSSTransition>
+              ))}
+            </div>
+          </ TransitionGroup>
         </div>
         <br/>
         <Footer />
       </div>  
+
     );
   }
 }
